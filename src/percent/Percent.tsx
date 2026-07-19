@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { NumberField } from '../components/NumberField';
-import { PlaceholderBox } from '../components/PlaceholderBox';
 import { ResultCard } from '../components/ResultCard';
 import { TabBar } from '../components/TabBar';
 import {
@@ -158,10 +157,17 @@ export function Percent() {
           caption={
             result.ok
               ? activeTab.caption(num1, num2, result.value)
-              : '두 값을 입력하면 결과가 표시됩니다'
+              : '값을 입력하면 바로 계산됩니다.'
           }
         />
-        <PlaceholderBox label="Borong Mascot Area" size="calc" />
+        <img
+          className="mascot-result"
+          src={result.ok ? '/mascot/borong-tongue.webp' : '/mascot/borong-sitting.webp'}
+          width={64}
+          height={64}
+          alt={result.ok ? '혀를 내밀고 웃는 계산해보롱 마스코트 보롱이' : '앉아서 기다리는 계산해보롱 마스코트 보롱이'}
+          loading="lazy"
+        />
       </div>
     </div>
   );
