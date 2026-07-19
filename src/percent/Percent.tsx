@@ -26,7 +26,10 @@ type TabConfig = {
   tabLabel: string;
   title: string;
   field1Label: string;
+  field1Placeholder: string;
   field2Label: string;
+  field2Placeholder: string;
+  example: string;
   compute: (value1: number, value2: number) => number;
   caption: (value1: number, value2: number, result: number) => string;
   suffix: string;
@@ -51,7 +54,10 @@ const TABS: TabConfig[] = [
     tabLabel: 'A는 B의 %',
     title: 'A는 B의 몇 %인가',
     field1Label: 'A',
+    field1Placeholder: '예: 73',
     field2Label: 'B',
+    field2Placeholder: '예: 200',
+    example: '예) 73은 200의 36.5%예요',
     compute: calcAIsPercentOfB,
     caption: (a, b, result) => `${formatNumber(a)}은(는) ${formatNumber(b)}의 ${formatNumber(result)}% 입니다`,
     suffix: '%',
@@ -61,7 +67,10 @@ const TABS: TabConfig[] = [
     tabLabel: 'B의 A%',
     title: 'B의 A%는 얼마인가',
     field1Label: '기준값 (B)',
+    field1Placeholder: '예: 200',
     field2Label: '퍼센트 (A, %)',
+    field2Placeholder: '예: 15',
+    example: '예) 200의 15%는 30이에요',
     compute: (b, a) => calcPercentOfB(a, b),
     caption: (b, a, result) => `${formatNumber(b)}의 ${formatNumber(a)}%는 ${formatNumber(result)} 입니다`,
     suffix: '',
@@ -71,7 +80,10 @@ const TABS: TabConfig[] = [
     tabLabel: '증가',
     title: '퍼센트 증가',
     field1Label: '기준값',
+    field1Placeholder: '예: 10000',
     field2Label: '증가율 (%)',
+    field2Placeholder: '예: 20',
+    example: '예) 10,000원에서 20% 증가하면 12,000원',
     compute: calcIncrease,
     caption: (base, percent, result) => `${formatNumber(base)}에서 ${formatNumber(percent)}% 증가하면 ${formatNumber(result)} 입니다`,
     suffix: '',
@@ -81,7 +93,10 @@ const TABS: TabConfig[] = [
     tabLabel: '감소',
     title: '퍼센트 감소',
     field1Label: '기준값',
+    field1Placeholder: '예: 10000',
     field2Label: '감소율 (%)',
+    field2Placeholder: '예: 20',
+    example: '예) 10,000원에서 20% 감소하면 8,000원',
     compute: calcDecrease,
     caption: (base, percent, result) => `${formatNumber(base)}에서 ${formatNumber(percent)}% 감소하면 ${formatNumber(result)} 입니다`,
     suffix: '',
@@ -91,7 +106,10 @@ const TABS: TabConfig[] = [
     tabLabel: '증감률',
     title: '두 값의 증감률',
     field1Label: '이전 값',
+    field1Placeholder: '예: 100',
     field2Label: '이후 값',
+    field2Placeholder: '예: 130',
+    example: '예) 100에서 130이 되면 30% 증가예요',
     compute: calcChangeRate,
     caption: (before, after, result) => `${formatNumber(before)}에서 ${formatNumber(after)}로 변하면 ${formatNumber(result)}% 증감입니다`,
     suffix: '%',
@@ -101,7 +119,10 @@ const TABS: TabConfig[] = [
     tabLabel: '할인가',
     title: '할인 가격',
     field1Label: '정가',
+    field1Placeholder: '예: 50000',
     field2Label: '할인율 (%)',
+    field2Placeholder: '예: 30',
+    example: '예) 정가 50,000원에서 30% 할인하면 35,000원',
     compute: calcDiscountedPrice,
     caption: (price, discount, result) => `정가 ${formatNumber(price)}에서 ${formatNumber(discount)}% 할인하면 ${formatNumber(result)} 입니다`,
     suffix: '',
@@ -111,7 +132,10 @@ const TABS: TabConfig[] = [
     tabLabel: '원가 역산',
     title: '할인 전 원래 가격 역산',
     field1Label: '할인된 가격',
+    field1Placeholder: '예: 35000',
     field2Label: '할인율 (%)',
+    field2Placeholder: '예: 30',
+    example: '예) 30% 할인된 가격 35,000원의 원가는 50,000원',
     compute: calcOriginalPriceFromDiscount,
     caption: (sale, discount, result) => `${formatNumber(discount)}% 할인된 가격이 ${formatNumber(sale)}이면 원래 가격은 ${formatNumber(result)} 입니다`,
     suffix: '',
@@ -145,10 +169,21 @@ export function Percent() {
       />
 
       <h3 className="calculator__title">{activeTab.title}</h3>
+      <p className="calculator__example">{activeTab.example}</p>
 
       <div className="calculator__fields">
-        <NumberField label={activeTab.field1Label} value={value1} onChange={setValue1} />
-        <NumberField label={activeTab.field2Label} value={value2} onChange={setValue2} />
+        <NumberField
+          label={activeTab.field1Label}
+          value={value1}
+          onChange={setValue1}
+          placeholder={activeTab.field1Placeholder}
+        />
+        <NumberField
+          label={activeTab.field2Label}
+          value={value2}
+          onChange={setValue2}
+          placeholder={activeTab.field2Placeholder}
+        />
       </div>
 
       <div className="calculator__result-row">
