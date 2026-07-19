@@ -1,0 +1,441 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+/* 헤더 / 공통 레이아웃 폭 */
+.site-header,
+.breadcrumb,
+.home-main,
+.percent-main,
+.site-footer {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+.brand {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.back-link {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding-bottom: var(--space-4);
+}
+
+.breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+/* 홈 화면 */
+.home-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-8);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+}
+
+.hero h1 {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.sub-copy {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.desc-card {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.desc-card strong {
+  color: var(--text);
+}
+
+.cta-button {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--accent-contrast);
+  background: var(--accent-strong);
+  border-radius: 14px;
+  padding: var(--space-4);
+}
+
+.future-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.future-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.future-chip {
+  flex: 1;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-1);
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: var(--bg);
+  cursor: default;
+  user-select: none;
+}
+
+.future-chip strong {
+  display: block;
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.ad-slot {
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.site-footer {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-8);
+}
+
+/* 퍼센트 계산기 페이지 */
+.percent-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-8);
+}
+
+.percent-main h1 {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.intro-copy {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.supported-box {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.supported-box h2 {
+  font-size: 15px;
+  margin-bottom: var(--space-2);
+}
+
+.supported-box ol {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+.calculator-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.formula-section,
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.formula-section h2,
+.faq-section h2 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+}
+
+details summary {
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+details p {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: var(--space-2);
+}
+
+/* 보롱이 캐릭터 자리 표시 — 실제 마스코트처럼 꾸미지 않는다 */
+.placeholder-box {
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: transparent;
+}
+
+.placeholder-box--hero {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.placeholder-box--calc {
+  width: 96px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .placeholder-box--hero {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* 계산기 컴포넌트 */
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.calculator__title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.calculator__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.calculator__result-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: stretch;
+}
+
+.calculator__result-row .placeholder-box--calc {
+  align-self: center;
+}
+
+@media (min-width: 640px) {
+  .calculator__result-row {
+    flex-direction: row;
+  }
+
+  .calculator__result-row .placeholder-box--calc {
+    align-self: auto;
+  }
+}
+
+.tab-bar {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding-bottom: var(--space-1);
+}
+
+.tab-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.tab-pill:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.tab-pill--active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.number-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.number-field__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.number-field__input {
+  font-family: inherit;
+  font-size: 20px;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  height: 56px;
+  padding: 0 var(--space-4);
+  width: 100%;
+}
+
+.number-field__input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+.result-card {
+  background: var(--surface-2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  flex: 1;
+}
+
+.result-card__value {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.result-card__caption {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+
+@media (min-width: 640px) {
+  .result-card__value {
+    font-size: 52px;
+  }
+}

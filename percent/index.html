@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>퍼센트 계산기 | 계산해보롱</title>
+<meta name="description" content="A는 B의 몇 %인지, 할인 가격, 증감률까지 자주 쓰는 퍼센트 계산 7가지를 회원가입 없이 무료로 바로 계산하세요." />
+<link rel="canonical" href="https://calc-haeborong.vercel.app/percent/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="퍼센트 계산기 | 계산해보롱" />
+<meta property="og:description" content="A는 B의 몇 %인지, 할인 가격, 증감률까지 퍼센트 계산 7가지를 무료로 바로 계산하세요." />
+<meta property="og:url" content="https://calc-haeborong.vercel.app/percent/" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:site_name" content="계산해보롱" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="퍼센트 계산기 | 계산해보롱" />
+<meta name="twitter:description" content="A는 B의 몇 %인지, 할인 가격, 증감률까지 퍼센트 계산 7가지를 무료로 바로 계산하세요." />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('calchaeborong-theme');
+      if (saved === 'dark' || saved === 'light') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="stylesheet" href="/src/styles/tokens.css" />
+<link rel="stylesheet" href="/src/styles/globals.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "회원가입이나 로그인이 필요한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요, 계산해보롱은 회원가입과 로그인 없이 누구나 바로 사용할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "계산 결과가 서버에 저장되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요, 모든 계산은 브라우저에서만 처리되며 서버로 전송되거나 저장되지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "소수점은 어떻게 표시되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "소수 둘째 자리까지 반올림하여 보여드립니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "모바일에서도 사용할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네, 모바일 화면에 맞춰 최적화되어 있어 스마트폰에서도 편하게 사용할 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "계산해보롱",
+      "item": "https://calc-haeborong.vercel.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "퍼센트 계산기",
+      "item": "https://calc-haeborong.vercel.app/percent/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="back-link" href="/">← 계산해보롱</a>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">다크 모드</button>
+  </header>
+
+  <nav class="breadcrumb" aria-label="현재 위치">
+    <a href="/">계산해보롱</a> <span aria-hidden="true">›</span> <span>퍼센트 계산기</span>
+  </nav>
+
+  <main class="percent-main">
+    <h1>퍼센트 계산기</h1>
+    <p class="intro-copy">숫자 두 개만 넣으면 A는 B의 몇 %인지, 할인 가격, 증감률까지 자주 쓰는 퍼센트 계산 7가지를 바로 확인할 수 있어요.</p>
+
+    <section class="supported-box" aria-labelledby="supported-heading">
+      <h2 id="supported-heading">지원하는 계산 · 7종</h2>
+      <ol>
+        <li>A는 B의 몇 %인가</li>
+        <li>B의 A%는 얼마인가</li>
+        <li>퍼센트 증가</li>
+        <li>퍼센트 감소</li>
+        <li>두 값의 증감률</li>
+        <li>할인 가격</li>
+        <li>할인 전 원래 가격 역산</li>
+      </ol>
+    </section>
+
+    <section class="calculator-section" aria-label="퍼센트 계산기">
+      <div id="calculator-root"></div>
+      <noscript>계산기를 사용하려면 자바스크립트를 켜주세요.</noscript>
+    </section>
+
+    <div class="ad-slot" aria-hidden="true">광고 영역</div>
+
+    <section class="formula-section" aria-labelledby="formula-heading">
+      <h2 id="formula-heading">계산 공식과 사용 예시</h2>
+      <details>
+        <summary>① A는 B의 몇 %인가</summary>
+        <p>공식: (A ÷ B) × 100<br />예시: 73은 200의 (73÷200)×100 = 36.5%</p>
+      </details>
+      <details>
+        <summary>② B의 A%는 얼마인가</summary>
+        <p>공식: B × (A ÷ 100)<br />예시: 200의 15%는 200×(15÷100) = 30</p>
+      </details>
+      <details>
+        <summary>③ 퍼센트 증가</summary>
+        <p>공식: A × (1 + N ÷ 100)<br />예시: 10,000원에서 20% 증가하면 10,000×1.2 = 12,000원</p>
+      </details>
+      <details>
+        <summary>④ 퍼센트 감소</summary>
+        <p>공식: A × (1 - N ÷ 100)<br />예시: 10,000원에서 20% 감소하면 10,000×0.8 = 8,000원</p>
+      </details>
+      <details>
+        <summary>⑤ 두 값의 증감률</summary>
+        <p>공식: ((B - A) ÷ A) × 100<br />예시: 100에서 130이 되면 ((130-100)÷100)×100 = 30%</p>
+      </details>
+      <details>
+        <summary>⑥ 할인 가격</summary>
+        <p>공식: 정가 × (1 - 할인율 ÷ 100)<br />예시: 정가 50,000원에서 30% 할인이면 50,000×0.7 = 35,000원</p>
+      </details>
+      <details>
+        <summary>⑦ 할인 전 원래 가격 역산</summary>
+        <p>공식: 판매가 ÷ (1 - 할인율 ÷ 100)<br />예시: 30% 할인된 판매가가 35,000원이면 35,000÷0.7 = 50,000원</p>
+      </details>
+    </section>
+
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">자주 묻는 질문</h2>
+      <details>
+        <summary>회원가입이나 로그인이 필요한가요?</summary>
+        <p>아니요, 계산해보롱은 회원가입과 로그인 없이 누구나 바로 사용할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>계산 결과가 서버에 저장되나요?</summary>
+        <p>아니요, 모든 계산은 브라우저에서만 처리되며 서버로 전송되거나 저장되지 않습니다.</p>
+      </details>
+      <details>
+        <summary>소수점은 어떻게 표시되나요?</summary>
+        <p>소수 둘째 자리까지 반올림하여 보여드립니다.</p>
+      </details>
+      <details>
+        <summary>모바일에서도 사용할 수 있나요?</summary>
+        <p>네, 모바일 화면에 맞춰 최적화되어 있어 스마트폰에서도 편하게 사용할 수 있습니다.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">© 계산해보롱</footer>
+
+  <script type="module" src="/src/percent/main.tsx"></script>
+</body>
+</html>

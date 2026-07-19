@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>계산해보롱 | 회원가입 없이 바로 쓰는 무료 계산기</title>
+<meta name="description" content="계산해보롱은 회원가입과 로그인 없이 누구나 바로 쓸 수 있는 무료 계산기 사이트입니다. 퍼센트 계산기부터 시작해 생활에 필요한 계산기를 계속 추가합니다." />
+<link rel="canonical" href="https://calc-haeborong.vercel.app/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="계산해보롱 | 필요한 계산을 빠르게" />
+<meta property="og:description" content="회원가입 없이 바로 쓰는 무료 계산기. 퍼센트 계산기부터 시작합니다." />
+<meta property="og:url" content="https://calc-haeborong.vercel.app/" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:site_name" content="계산해보롱" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="계산해보롱 | 필요한 계산을 빠르게" />
+<meta name="twitter:description" content="회원가입 없이 바로 쓰는 무료 계산기. 퍼센트 계산기부터 시작합니다." />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('calchaeborong-theme');
+      if (saved === 'dark' || saved === 'light') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="stylesheet" href="/src/styles/tokens.css" />
+<link rel="stylesheet" href="/src/styles/globals.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "계산해보롱",
+  "url": "https://calc-haeborong.vercel.app/"
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <span class="brand">계산해보롱</span>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">다크 모드</button>
+  </header>
+
+  <main class="home-main">
+    <section class="hero">
+      <h1>필요한 계산을 빠르게</h1>
+      <p class="sub-copy">간단하게 계산해보롱</p>
+      <div class="placeholder-box placeholder-box--hero"><span>Borong Mascot Area</span></div>
+    </section>
+
+    <section class="desc-card">
+      <p><strong>퍼센트 계산기</strong> — A는 B의 몇 %인지, 할인 가격, 증감률까지 자주 쓰는 퍼센트 계산 7가지를 한 화면에서 바로 확인하세요.</p>
+    </section>
+
+    <a class="cta-button" href="/percent/">퍼센트 계산기 시작하기 →</a>
+
+    <section>
+      <div class="future-label">앞으로 추가될 계산기</div>
+      <div class="future-row">
+        <div class="future-chip"><strong>BMI</strong>준비 중</div>
+        <div class="future-chip"><strong>부가세</strong>준비 중</div>
+        <div class="future-chip"><strong>만나이</strong>준비 중</div>
+      </div>
+    </section>
+
+    <div class="ad-slot" aria-hidden="true">광고 영역</div>
+  </main>
+
+  <footer class="site-footer">© 계산해보롱</footer>
+
+  <script type="module" src="/src/home/main.ts"></script>
+</body>
+</html>
