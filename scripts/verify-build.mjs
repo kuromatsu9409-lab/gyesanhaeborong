@@ -114,6 +114,54 @@ if (percentHtml) {
   ]);
 }
 
+// 3) BMI 계산기
+const bmiHtml = readDistFile('bmi/index.html');
+if (bmiHtml) {
+  checkCommonSeo('bmi/index.html', bmiHtml, `${BASE_URL}/bmi/`);
+  checkJsonLd('bmi/index.html', bmiHtml, ['FAQPage', 'BreadcrumbList']);
+  checkVisibleContent('bmi/index.html', bmiHtml, [
+    ['H1', /<h1[^>]*>BMI 계산기<\/h1>/],
+    ['BMI 구간표', /class="bmi-range-table"/],
+    ['계산 예시', /class="formula-section"/],
+    ['FAQ', /class="faq-section"/],
+  ]);
+}
+
+// 4) 만나이 계산기
+const ageHtml = readDistFile('age/index.html');
+if (ageHtml) {
+  checkCommonSeo('age/index.html', ageHtml, `${BASE_URL}/age/`);
+  checkJsonLd('age/index.html', ageHtml, ['FAQPage', 'BreadcrumbList']);
+  checkVisibleContent('age/index.html', ageHtml, [
+    ['H1', /<h1[^>]*>만나이 계산기<\/h1>/],
+    ['한국식 나이 차이 설명', /id="korean-age-heading"/],
+    ['윤년 안내', /id="leap-heading"/],
+    ['FAQ', /class="faq-section"/],
+  ]);
+}
+
+// 5) sitemap.xml / robots.txt
+const sitemapXml = readDistFile('sitemap.xml');
+if (sitemapXml) {
+  const expectedUrls = ['/', '/percent/', '/bmi/', '/age/'].map((path) => `${BASE_URL}${path}`);
+  for (const url of expectedUrls) {
+    if (sitemapXml.includes(`<loc>${url}</loc>`)) {
+      ok('sitemap.xml', `${url} 포함`);
+    } else {
+      fail('sitemap.xml', `${url}이(가) 없습니다`);
+    }
+  }
+}
+
+const robotsTxt = readDistFile('robots.txt');
+if (robotsTxt) {
+  if (robotsTxt.includes(`${BASE_URL}/sitemap.xml`)) {
+    ok('robots.txt', 'Sitemap 주소 존재');
+  } else {
+    fail('robots.txt', 'Sitemap 주소가 없거나 실제 도메인과 다릅니다');
+  }
+}
+
 if (hasError) {
   console.error('\n[verify-build] 실패한 항목이 있습니다. 위 로그를 확인하세요.');
   process.exit(1);
