@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         percent: resolve(__dirname, 'percent/index.html'),
+        bmi: resolve(__dirname, 'bmi/index.html'),
       },
     },
   },

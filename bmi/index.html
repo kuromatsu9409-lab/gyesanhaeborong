@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BMI 계산기 | 키와 몸무게로 체질량지수 계산 - 계산해보롱</title>
+<meta name="description" content="키와 몸무게를 입력하면 BMI와 체중 구간을 바로 확인할 수 있습니다. 계산식, 판정 기준, 예시와 주의사항을 함께 제공합니다." />
+<link rel="canonical" href="https://gyesanhaeborong.vercel.app/bmi/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="BMI 계산기 | 키와 몸무게로 체질량지수 계산 - 계산해보롱" />
+<meta property="og:description" content="키와 몸무게를 입력하면 BMI와 체중 구간을 바로 확인할 수 있습니다. 계산식, 판정 기준, 예시와 주의사항을 함께 제공합니다." />
+<meta property="og:url" content="https://gyesanhaeborong.vercel.app/bmi/" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:site_name" content="계산해보롱" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="BMI 계산기 | 키와 몸무게로 체질량지수 계산 - 계산해보롱" />
+<meta name="twitter:description" content="키와 몸무게를 입력하면 BMI와 체중 구간을 바로 확인할 수 있습니다. 계산식, 판정 기준, 예시와 주의사항을 함께 제공합니다." />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('calchaeborong-theme');
+      if (saved === 'dark' || saved === 'light') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="stylesheet" href="/src/styles/tokens.css" />
+<link rel="stylesheet" href="/src/styles/globals.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "BMI 계산기는 회원가입이 필요한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요, 계산해보롱은 회원가입과 로그인 없이 누구나 바로 사용할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "BMI로 건강 상태를 정확히 알 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요, BMI는 키와 몸무게만으로 계산하는 참고용 지표이며 근육량, 체지방률 등 개인의 체형과 건강 상태를 모두 반영하지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "이 BMI 구간 기준은 어디서 온 건가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "계산해보롱에서 서비스 제공을 위해 자체적으로 정한 기준이며, 의학적 진단 기준으로 사용하지 마세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "청소년이나 어린이도 사용할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이 계산기는 성인 기준으로 제공됩니다. 청소년과 어린이는 성장 단계에 따라 별도의 기준이 필요합니다."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "계산해보롱",
+      "item": "https://gyesanhaeborong.vercel.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "BMI 계산기",
+      "item": "https://gyesanhaeborong.vercel.app/bmi/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="back-link" href="/">← 계산해보롱</a>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">다크 모드</button>
+  </header>
+
+  <nav class="breadcrumb" aria-label="현재 위치">
+    <a href="/">계산해보롱</a> <span aria-hidden="true">›</span> <span>BMI 계산기</span>
+  </nav>
+
+  <main class="percent-main">
+    <h1>BMI 계산기</h1>
+    <p class="intro-copy">키와 몸무게만 입력하면 체질량지수(BMI)와 체중 구간을 바로 확인할 수 있어요. 성인 기준으로 제공되는 참고용 계산기입니다.</p>
+
+    <section class="supported-box" aria-labelledby="formula-heading">
+      <h2 id="formula-heading">계산식</h2>
+      <p>BMI = 몸무게(kg) ÷ 키(m)²</p>
+    </section>
+
+    <section class="supported-box" aria-labelledby="howto-heading">
+      <h2 id="howto-heading">사용 방법</h2>
+      <ol>
+        <li>키(cm)를 입력합니다.</li>
+        <li>몸무게(kg)를 입력합니다.</li>
+        <li>계산하기 버튼을 누르거나 Enter 키를 누르면 BMI와 체중 구간을 확인할 수 있습니다.</li>
+      </ol>
+    </section>
+
+    <section class="calculator-section" aria-label="BMI 계산기">
+      <div id="calculator-root"></div>
+      <noscript>계산기를 사용하려면 자바스크립트를 켜주세요.</noscript>
+    </section>
+
+    <div class="ad-slot" aria-hidden="true">광고 영역</div>
+
+    <section class="formula-section" aria-labelledby="example-heading">
+      <h2 id="example-heading">계산 예시</h2>
+      <details open>
+        <summary>키 170cm, 몸무게 65kg인 경우</summary>
+        <p>65 ÷ (1.70m × 1.70m) = 22.5 → 정상</p>
+      </details>
+      <details>
+        <summary>키 160cm, 몸무게 45kg인 경우</summary>
+        <p>45 ÷ (1.60m × 1.60m) = 17.6 → 저체중</p>
+      </details>
+    </section>
+
+    <section class="supported-box" aria-labelledby="range-heading">
+      <h2 id="range-heading">BMI 구간표 (계산해보롱 서비스 기준, 성인)</h2>
+      <table class="bmi-range-table">
+        <thead>
+          <tr>
+            <th scope="col">BMI 범위</th>
+            <th scope="col">판정</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>18.5 미만</td><td>저체중</td></tr>
+          <tr><td>18.5 이상 23 미만</td><td>정상</td></tr>
+          <tr><td>23 이상 25 미만</td><td>과체중</td></tr>
+          <tr><td>25 이상 30 미만</td><td>비만</td></tr>
+          <tr><td>30 이상</td><td>고도비만</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="formula-section" aria-labelledby="caution-heading">
+      <h2 id="caution-heading">주의사항</h2>
+      <p class="intro-copy">
+        BMI는 참고용 지표이며 개인의 체형과 건강 상태를 모두 반영하지 않습니다. 이 결과는 질병을 진단하지 않으며, 체중 감량을 강요하거나 외모를 평가하지 않습니다. 이 계산기는 성인 기준으로 제공됩니다.
+      </p>
+    </section>
+
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">자주 묻는 질문</h2>
+      <details>
+        <summary>BMI 계산기는 회원가입이 필요한가요?</summary>
+        <p>아니요, 계산해보롱은 회원가입과 로그인 없이 누구나 바로 사용할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>BMI로 건강 상태를 정확히 알 수 있나요?</summary>
+        <p>아니요, BMI는 키와 몸무게만으로 계산하는 참고용 지표이며 근육량, 체지방률 등 개인의 체형과 건강 상태를 모두 반영하지 않습니다.</p>
+      </details>
+      <details>
+        <summary>이 BMI 구간 기준은 어디서 온 건가요?</summary>
+        <p>계산해보롱에서 서비스 제공을 위해 자체적으로 정한 기준이며, 의학적 진단 기준으로 사용하지 마세요.</p>
+      </details>
+      <details>
+        <summary>청소년이나 어린이도 사용할 수 있나요?</summary>
+        <p>이 계산기는 성인 기준으로 제공됩니다. 청소년과 어린이는 성장 단계에 따라 별도의 기준이 필요합니다.</p>
+      </details>
+    </section>
+
+    <section aria-labelledby="related-heading">
+      <h2 id="related-heading" class="future-label">다른 계산기</h2>
+      <div class="future-row">
+        <a class="future-chip future-chip--link" href="/percent/"><strong>퍼센트</strong>계산기</a>
+        <a class="future-chip future-chip--link" href="/age/"><strong>만나이</strong>계산기</a>
+        <span class="future-chip"><strong>부가세</strong>준비 중</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">© 계산해보롱</footer>
+
+  <script type="module" src="/src/bmi/main.tsx"></script>
+</body>
+</html>

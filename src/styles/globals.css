@@ -178,6 +178,43 @@ a {
   margin-bottom: 2px;
 }
 
+/* 실제로 이동 가능한 계산기 카드 — 준비 중 칩과 달리 클릭 가능함을 명확히 표현 */
+.future-chip--link {
+  border-style: solid;
+  border-color: var(--accent);
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  user-select: auto;
+}
+
+.future-chip--link:hover {
+  background: var(--accent-soft);
+}
+
+.future-chip--link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.bmi-range-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.bmi-range-table th,
+.bmi-range-table td {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.bmi-range-table th {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
 .ad-slot {
   border: 1px dashed var(--border);
   border-radius: var(--radius-md);
