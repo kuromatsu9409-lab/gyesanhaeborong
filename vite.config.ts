@@ -10,6 +10,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         percent: resolve(__dirname, 'percent/index.html'),
         bmi: resolve(__dirname, 'bmi/index.html'),
+        age: resolve(__dirname, 'age/index.html'),
       },
     },
   },
