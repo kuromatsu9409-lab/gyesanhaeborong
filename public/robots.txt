@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://calc-haeborong.vercel.app/sitemap.xml
+Sitemap: https://gyesanhaeborong.vercel.app/sitemap.xml

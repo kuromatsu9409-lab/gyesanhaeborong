@@ -10,7 +10,7 @@ export const siteConfig = {
   nameEn: 'CalcHaeborong',
   slogan: '필요한 계산을 빠르게',
   subCopy: '간단하게 계산해보롱',
-  baseUrl: 'https://calc-haeborong.vercel.app',
+  baseUrl: 'https://gyesanhaeborong.vercel.app',
   locale: 'ko-KR',
   country: 'KR',
 } as const;

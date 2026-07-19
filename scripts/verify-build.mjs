@@ -6,7 +6,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-const BASE_URL = 'https://calc-haeborong.vercel.app';
+const BASE_URL = 'https://gyesanhaeborong.vercel.app';
 const DIST_DIR = resolve(process.cwd(), 'dist');
 
 let hasError = false;
