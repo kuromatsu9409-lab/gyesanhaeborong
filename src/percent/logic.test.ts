@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   calcAIsPercentOfB,
+  calcAmountFromPercent,
   calcChangeRate,
   calcDecrease,
   calcDiscountedPrice,
@@ -36,5 +37,9 @@ describe('percent calculator logic', () => {
 
   it('할인 전 원래 가격 역산: 30% 할인된 판매가 35000이면 원가 50000', () => {
     expect(calcOriginalPriceFromDiscount(35000, 30)).toBe(50000);
+  });
+
+  it('기준값의 N%에 해당하는 금액: 10000의 20%는 2000', () => {
+    expect(calcAmountFromPercent(10000, 20)).toBe(2000);
   });
 });

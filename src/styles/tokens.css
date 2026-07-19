@@ -9,6 +9,7 @@
   --accent-strong: #C2451F;
   --accent-soft: #FDEAE2;
   --accent-contrast: #FFFFFF;
+  --error: #C0392B;
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -37,6 +38,7 @@
     --accent-strong: #FF8659;
     --accent-soft: #3A2018;
     --accent-contrast: #1C1108;
+    --error: #FF6B6B;
   }
 }
 
@@ -51,6 +53,7 @@
   --accent-strong: #FF8659;
   --accent-soft: #3A2018;
   --accent-contrast: #1C1108;
+  --error: #FF6B6B;
 }
 
 :root[data-theme='light'] {
@@ -64,4 +67,5 @@
   --accent-strong: #C2451F;
   --accent-soft: #FDEAE2;
   --accent-contrast: #FFFFFF;
+  --error: #C0392B;
 }

@@ -38,3 +38,8 @@ export function calcDiscountedPrice(originalPrice: number, discountPercent: numb
 export function calcOriginalPriceFromDiscount(discountedPrice: number, discountPercent: number): number {
   return round2(discountedPrice / (1 - discountPercent / 100));
 }
+
+/** 기준값의 N%에 해당하는 금액(증가/감소/할인 금액 표시에 공통으로 사용) */
+export function calcAmountFromPercent(base: number, percent: number): number {
+  return round2(base * (percent / 100));
+}
